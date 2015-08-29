@@ -1,0 +1,29 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "JS-Apps-Teamwork_Aviation",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Team-Aviation/JS-Apps-Teamwork.git"
+  },
+  "keywords": [
+    "SoundCloud",
+    "extention"
+  ],
+  "author": "Team_Aviation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Team-Aviation/JS-Apps-Teamwork/issues"
+  },
+  "homepage": "https://github.com/Team-Aviation/JS-Apps-Teamwork",
+  "dependencies": {
+    "babel": "^5.8.23",
+    "bootstrap": "^3.3.5",
+    "jquery": "^2.1.4",
+    "systemjs": "^0.18.17"
+  }
+}
