@@ -1,6 +1,7 @@
 var PlaylistCollection = (function() {
-	// This will be used in the other objects
-	//var idCounter = 0;
+	// Checking if the module is sucsessfully loaded
+	window.alert('PlaylistCollection sucsessfully loaded!');
+
 	var PlaylistCollection = Object.create({});
 
 	Object.defineProperty(PlaylistCollection, 'init', {
@@ -11,7 +12,7 @@ var PlaylistCollection = (function() {
 		}
 	});
 
-	Object.defineProperty(Item, 'setOfPlaylists', {
+	Object.defineProperty(PlaylistCollection, 'setOfPlaylists', {
         get: function () {
             return this._setOfPlaylists;
         },
@@ -29,7 +30,7 @@ var PlaylistCollection = (function() {
 			var currentWord;
 			var playlistAlreadyAdded;
 
-			// TODO: Validate the input!!!!!!!
+			vlidateStringsArray(keywords);
 
 			// Iterating on the current set of playlists
 			for (i = 0, collectionLen = this.setOfPlaylists.length; i < collectionLen; i += 1) {
@@ -80,29 +81,96 @@ var PlaylistCollection = (function() {
 		}
 	});
 
+	Object.defineProperty(PlaylistCollection, 'addNewPlaylist', {
+		value: function(playlist) {
+			var i, len, currentPlaylist;
 
+			validateIfPlaylist(playlist);
+			
+			for (i = 0, len = this.setOfPlaylists.length; i < len; i += 1) {
+				currentPlaylist = this.setOfPlaylists[i];
+				if (currentPlaylist.id === playlist.id) {
+					throw new Error('The playlist is already added to this set!');
+				}
+			}
+
+			this._setOfPlaylists.push(playlist);
+
+			return this;
+		}
+	});
+
+	Object.defineProperty(PlaylistCollection, 'deletePlaylist', {
+		value: function(id) {
+			var i, len, currentPlaylistId;
+			var playlistRemoved = false;
+
+			validateIfNumber(id);
+
+			for (i = 0, len = this.setOfPlaylists.length; i < len; i += 1) {
+				currentPlaylistId = this.setOfPlaylists[i].id;
+				if (currentPlaylistId === id) {
+					this._setOfPlaylists.splice(i, 1);
+					playlistRemoved = true;
+				}
+			}
+
+			if (!playlistRemoved) {
+				throw new Error('Unable to find playlist with the given id!');
+			}
+
+			return this;
+		}
+	});
 
     function validatePlaylistsArray(playlists) {
-    	var i,
-			len,
-			currentItem;
+    	var i, len;
 
-    	if (!(playlists instanceof Array)) {
-			throw new Error('Input playlists are not in the format required!');
-		}
-		if (playlists.length < 1) {
-			throw new Error('Playlists array should have at least one playlist as content!');
-		}
+		validateIfNonEmptyArray(playlists);
+    	
 		for (i = 0, len = playlists.length; i < len; i++) {
-			currentItem = playlists[i];
-			if(!(currentItem.id && currentItem.name && currentItem.genre && currentItem.tracksList)) {
-				throw new Error('The input objects in the array are not playlists!');
-			}
+			validateIfPlaylist(playlists[i]);
 		}
     }
 
-	return PlaylistCollection;
+    function vlidateStringsArray(keywords) {
+    	var i, len;
 
+    	validateIfNonEmptyArray(keywords);
+
+    	for (i = 0, len = keywords.length; i < len; i++) {
+			validateIfeNonEmptyString(keywords[i]);
+		}
+    }
+
+    function validateIfeNonEmptyString(obj) {
+    	if (!((typeof obj === 'string' || obj instanceof String) && obj)) {
+			throw new Error('The input object is not a non empty string!');
+		}
+    }
+
+    function validateIfNonEmptyArray(obj) {
+		if (!(obj instanceof Array)) {
+			throw new Error('The input should be an array!');
+		}
+		if (obj.length < 1) {
+			throw new Error('The input array should have at least one item as content!');
+		}
+	}
+
+	function validateIfPlaylist(obj) {
+		if(!(obj.id && obj.name && obj.genre && obj.tracksList)) {
+			throw new Error('The input objects is not a playlist!');
+		}
+	}
+
+	function validateIfNumber(obj) {
+		if (isNaN(obj)) {
+			throw new Error('The input objects is not a number!');
+		}
+	}
+
+	return PlaylistCollection;
 }());
 
 export {PlaylistCollection};
