@@ -4,6 +4,14 @@ var PlaylistCollection = (function() {
 
 	var PlaylistCollection = Object.create({});
 
+	// UNIT TESTS: Check if creates PlaylistCollection as expected:
+	// When giving no input to throw
+	// When giving a non array as input to throw
+	// When giving an empty array to throw
+	// When giving an array of objects different from playlist to throw
+	// When giving an array of playlists and one different object to throw
+	// When giving an array of one playlist to create a PlaylistCollection
+	// When giving an array of many playlists to create a PlaylistCollection
 	Object.defineProperty(PlaylistCollection, 'init', {
 		value: function(playlists) {
 			this.setOfPlaylists = playlists;
@@ -13,6 +21,8 @@ var PlaylistCollection = (function() {
 	});
 
 	Object.defineProperty(PlaylistCollection, 'setOfPlaylists', {
+        // UNIT TESTS: Check if returns the expected value:
+        // Array of playlist
         get: function () {
             return this._setOfPlaylists;
         },
@@ -22,7 +32,22 @@ var PlaylistCollection = (function() {
         }
     });
 
-    Object.defineProperty(PlaylistCollection, 'searchForPlaylists', {
+    // UNIT TESTS: Check if returns the expected array of playlists:
+	// When giving no input to throw
+	// When giving a non array as input to throw
+	// When giving an empty array to throw
+	// When giving an array of objects different from strings to throw
+	// When giving an array of strings and one different from string object to throw
+	// When giving an array of one string that has no match in the playlists to return an empty array
+	// When giving an array of many strings that have no match in the playlists to return an empty array
+	// When giving an array of strings that match one name of playlist to return an array of that playlist
+	// When giving an array of strings that match more names of playlists to return an array of those playlists
+	// When giving an array of strings that match one name of track in one playlist to return an array of that playlist
+	// When giving an array of strings that match names of tracks in different playlists to return an array of those playlists
+	// When giving an array of strings that match one genre in one playlist to return an array of that playlist
+	// When giving an array of strings that match genres in different playlists to return an array of those playlists
+	// When giving an array of strings that match names, genres and names of tracks from different playlists to return an array of those playlists
+	Object.defineProperty(PlaylistCollection, 'searchForPlaylists', {
 		value: function(keywords) {
 			var foundPlaylists = [];
 			var i, j, k, collectionLen, wordsLen, propertyItemsCount;
@@ -81,6 +106,11 @@ var PlaylistCollection = (function() {
 		}
 	});
 
+	// UNIT TESTS: Check if returns the expected PlaylistCollection:
+	// When giving no input to throw
+	// When giving a non playlist as input to throw
+	// When giving a playlist that is already added to throw
+	// When giving a playlist that is not still added to return PlaylistCollection whith added the given playlist
 	Object.defineProperty(PlaylistCollection, 'addNewPlaylist', {
 		value: function(playlist) {
 			var i, len, currentPlaylist;
@@ -100,6 +130,11 @@ var PlaylistCollection = (function() {
 		}
 	});
 
+	// UNIT TESTS: Check if returns the expected PlaylistCollection:
+	// When giving no input to throw
+	// When giving a non number as input to throw
+	// When giving an id that does not match any playlist id to throw
+	// When giving an id that matches a playlist to retyrn PlaylistCollection in which the playlist with the given id ie removed
 	Object.defineProperty(PlaylistCollection, 'deletePlaylist', {
 		value: function(id) {
 			var i, len, currentPlaylistId;
