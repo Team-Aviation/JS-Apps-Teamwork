@@ -15,11 +15,14 @@
                 },
                 map: {
                     // Load (map) the path to babel and jquery
-                    'babel': 'node_modules/babel-core/browser.js',
+                    'babel': 'node_modules/babel/node_modules/babel-core/browser.js',
                     'jquery': 'node_modules/jquery/dist/jquery.js'
                 }
             });
-            System.import('scripts/app.js');
+            System.import('scripts/app.js')
+                .then(function(app) {
+                    app.appInitialize();
+                });
                 // We should insert callback with .then to initialize the app  
         </script>
         <!-- CSS file, currently empty -->
