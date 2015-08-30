@@ -35,7 +35,7 @@ var track = (function(){
             validator.validateIfUndefined(url, urlName);
             validator.validateIfString(url, urlName);
             if (!isValidUrl(url)) {
-                throw new Error(urlName + ' is not a valid URL.');
+                throw new Error(urlName + ' is not a valid URL');
             }
         }
     };
