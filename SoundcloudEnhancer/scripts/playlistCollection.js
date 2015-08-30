@@ -1,6 +1,6 @@
-var PlaylistCollection = (function() {
-	// Checking if the module is sucsessfully loaded
-	window.alert('PlaylistCollection sucsessfully loaded!');
+var playlistCollection = (function() {
+    // Checking if the module is sucsessfully loaded
+    console.log('PlaylistCollection sucsessfully loaded!');
 
 	var PlaylistCollection = Object.create({});
 
@@ -208,4 +208,4 @@ var PlaylistCollection = (function() {
 	return PlaylistCollection;
 }());
 
-export {PlaylistCollection};
+export {playlistCollection};

@@ -1,5 +1,7 @@
 var track = (function(){
-    var validator = require('./validator')();
+    // Checking if the module is sucsessfully loaded
+    console.log('Track sucsessfully loaded!');
+
     var previousID = 1;
 
     var trackObject = {
@@ -33,3 +35,5 @@ var track = (function(){
 
     return trackObject;
 }());
+
+export {track};

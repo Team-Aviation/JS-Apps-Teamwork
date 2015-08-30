@@ -1,5 +1,7 @@
 var playlist = (function(){
-    var validator = require('./validator')();
+    // Checking if the module is sucsessfully loaded
+    console.log('Playlist sucsessfully loaded!');
+
     var previousID = 1;
 
     var playlistObject = {
@@ -81,3 +83,5 @@ var playlist = (function(){
 
     return playlistObject;
 }());
+
+export {playlist};

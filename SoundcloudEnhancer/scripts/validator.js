@@ -1,5 +1,8 @@
-function validator() {
-    var constants = require('./constants')();
+import {constants} from 'scripts/constants.js';
+
+var validator = (function () {
+    // Checking if the module is sucsessfully loaded
+    console.log('Validator sucsessfully loaded!');
 
     function isValidUrl(url) {
         //TODO: validate URL
@@ -169,7 +172,7 @@ function validator() {
                 throw new Error(stringName + ' cannot be empty');
             }
         }
-    }
-}
+    };
+}());
 
-module.exports = validator;
+export {validator};

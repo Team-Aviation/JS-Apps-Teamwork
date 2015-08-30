@@ -1,5 +1,6 @@
 var user = (function(){
-    var validator = require('./validator')();
+    // Checking if the module is sucsessfully loaded
+    console.log('User sucsessfully loaded!');
 
     var userObject = {
         init: function(username, playlistsSet) {
@@ -28,6 +29,8 @@ var user = (function(){
 
     return userObject;
 }());
+
+export {user};
 
 /*TODO: Unit Tests
 - user is object
