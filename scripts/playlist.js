@@ -80,12 +80,15 @@ var playlist = (function(){
 
     var playlistResult = {
         init: function(name, genres, tracks) {
+            this._id = previousID++;
             this.name = name;
             this.genres = genres;
-            this.tracks = tracks;
-            this._id = previousID++;
+            this.tracksList = tracks;
 
             return this;
+        },
+        get id(){
+            return this._id;
         },
         get name(){
             return this._name;
@@ -103,15 +106,21 @@ var playlist = (function(){
 
             this._genres = value;
         },
-        get tracks(){
-            return this._tracks;
+        get tracksList(){
+            return this._tracksList;
         },
-        set tracks(value){
+        set tracksList(value){
             validator.validateTracks(value, 'Playlist tracks');
-            this._tracks = value;
+
+            this._tracksList = value;
         },
-        get id(){
-            return this._id;
+        get trackRequests(){
+            return this._trackRequests;
+        },
+        set trackRequests(value){
+            validator.validateTracks(value, 'Track requests list');
+
+            this._trackRequests = value;
         },
         addNewTrack: function(track){
             validator.validateIfUndefined(track, 'Track to be added');
