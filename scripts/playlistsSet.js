@@ -16,6 +16,8 @@ var playlistsSet = (function(){
             this._playlists = value;
         },
         searchPlaylists: function(patterns){
+            validator.validatePatterns(patterns, 'Search playlist strings');
+
             var patternsCaseInsensitive = patterns.map(function(pat){ return pat.toLowerCase();});
 
             return this.playlists.filter(

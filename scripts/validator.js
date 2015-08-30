@@ -148,6 +148,17 @@
                     throw new Error(playlistsName + ' contains a non-playlist element at index ' + index);
                 }
             }
+        },
+        validatePatterns: function(patterns, pattenrsName){
+            pattenrsName = pattenrsName || 'Value';
+
+            this.validateIfUndefined(patterns, pattenrsName);
+            this.validateIfArray(patterns, pattenrsName);
+            for (var index in patterns) {
+                if (!this.validateIfString(patterns[index])) {
+                    throw new Error(pattenrsName + ' contains a non-string element at index ' + index);
+                }
+            }
         }
     }
 }
