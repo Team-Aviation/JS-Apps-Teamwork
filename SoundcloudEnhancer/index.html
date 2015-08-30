@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Tracks playlist manager for SoundCloud">
-        <meta name="author" content="Aviation Telerik Academy team">
-        
-        <link rel="icon" href="./img/aviation.png">
-        <title>Aviation playlist manager</title>
-        
-        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="./css/indexPageCustomStyles.css" rel="stylesheet"> 
-        
-        <!-- Load system.js -->
-        <script src="node_modules/systemjs/dist/system.js" type="text/javascript"></script>
 
-        <!-- Should fix this! -->
-        <script src="node_modules/handlebars/dist/handlebars.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            System.config({
-                transpiler: 'babel',
-                balebOptions: {
-                    optional: [
-                        'runtime'
-                    ]
-                },
-                map: {
-                    // Load (map) the path to babel, jquery and bootstrap.js
-                    'babel': 'node_modules/babel/node_modules/babel-core/browser.js',
-                    'jquery': 'node_modules/jquery/dist/jquery.js',
-                    'bootstrapjs': 'node_modules/bootstrap/dist/js/bootstrap.min.js'
-                }
-            });
-            System.import('scripts/app.js'); 
-        </script>
-    </head>
-    <body>
-        <div class="site-wrapper">
-        <div class="row" id="backgroundContainer">          
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Tracks playlist manager for SoundCloud">
+    <meta name="author" content="Aviation Telerik Academy team">
+
+    <link rel="icon" href="./img/aviation.png">
+    <title>Aviation playlist manager</title>
+    
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/indexPageCustomStyles.css" rel="stylesheet">
+    
+    <!-- Load system.js -->
+    <script src="node_modules/systemjs/dist/system.js" type="text/javascript"></script>
+    <!-- I should think how to remove this! (Veso) -->
+    <script src="node_modules/handlebars/dist/handlebars.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+        System.config({
+            transpiler: 'babel',
+            balebOptions: {
+                optional: [
+                    'runtime'
+                ]
+            },
+            map: {
+                // Load (map) the path to babel, jquery and bootstrap.js
+                'babel': 'node_modules/babel/node_modules/babel-core/browser.js',
+                'jquery': 'node_modules/jquery/dist/jquery.js',
+                'bootstrapjs': 'node_modules/bootstrap/dist/js/bootstrap.min.js'
+            }
+        });
+        System.import('scripts/app.js');
+    </script>
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <div class="row" id="backgroundContainer">
         </div>
         <div class="site-wrapper-inner">
             <div class="cover-container">
+
+
+
+
                 <div id="innerContent" class="cover">
                     <h1 class="cover-heading">Search for your favorite playlist now!</h1>
                     <form class="searchSubmitForm">
@@ -49,6 +55,11 @@
                         <div id="searchPlaylistBtn" class="btn btn-lg btn-default">Search</div>
                     </form>
                 </div>
+
+
+
+
+
                 <div class="masthead clearfix">
                     <div class="inner">
                         <h3 class="masthead-brand">
@@ -74,18 +85,19 @@
         </div>
     </div>
 
-    <script id="imageTemplate" type='text/x-handlebars-template'>   
+    <!-- This is the handlebars template for the grid view -->
+    <script id="imageTemplate" type='text/x-handlebars-template'>
         {{#urls}}
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                 <img src={{this}} class="img-responsive">
             </div>
         {{/urls}}
-    </script>  
+    </script>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
 </body>
+
 </html>
