@@ -1,14 +1,11 @@
 function validator() {
+    var constants = require('./constants')();
+
     function isValidUrl(url) {
         //TODO: validate URL
 
         return true;
     }
-
-    var constants = {
-        MIN_NAME_LENGTH: 2,
-        MAX_NAME_LENGTH: 40
-    };
 
     return {
         validateIfUndefined: function (item, itemName) {
