@@ -15,6 +15,9 @@
         
         <!-- Load system.js -->
         <script src="node_modules/systemjs/dist/system.js" type="text/javascript"></script>
+
+        <!-- Should fix this! -->
+        <script src="node_modules/handlebars/dist/handlebars.js" type="text/javascript"></script>
         <script type="text/javascript">
             System.config({
                 transpiler: 'babel',
@@ -27,8 +30,7 @@
                     // Load (map) the path to babel and jquery
                     'babel': 'node_modules/babel/node_modules/babel-core/browser.js',
                     'jquery': 'node_modules/jquery/dist/jquery.js',
-                    'bootstrapjs': 'node_modules/bootstrap/dist/js/bootstrap.min.js',
-                    'handlebars': 'node_modules/handlebars/dist/handlebars.js'
+                    'bootstrapjs': 'node_modules/bootstrap/dist/js/bootstrap.min.js'
                 }
             });
             System.import('scripts/app.js');
@@ -42,125 +44,14 @@
     </head>
     <body>
         <div class="site-wrapper">
-        <div class="row">
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <img src="./img/pic385x385.png" class="img-responsive">
-            </div>
-            
+        <div class="row" id="backgroundContainer">
+            <script id="backgroundImageTemplate" type='text/x-handlebars-template'>   
+                {{#urls}}
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                        <img src={{this}} class="img-responsive">
+                    </div>
+                {{/urls}}
+            </script>            
         </div>
         <div class="site-wrapper-inner">
             <div class="cover-container">
