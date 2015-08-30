@@ -1,5 +1,5 @@
 var track = (function(){
-    var previousID = 0;
+    var previousID = 1;
 
     var validator = {
         validateIfUndefined: function(item, itemName){
