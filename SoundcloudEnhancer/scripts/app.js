@@ -2,6 +2,7 @@
  // import { Playlist } from 'scripts/playlist.js';
  import 'jquery';
  import 'bootstrapjs';
+ import 'handlebars';
  import { validator } from 'scripts/validator.js';
  import { track } from 'scripts/track.js';
  import { playlist } from 'scripts/playlist.js';
