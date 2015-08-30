@@ -1,4 +1,6 @@
 var track = (function(){
+    var previousID = 0;
+
     var validator = {
         validateIfUndefined: function(item, itemName){
             itemName = itemName || 'Value';
@@ -38,12 +40,6 @@ var track = (function(){
         }
     };
 
-    function getID(url){
-        //TODO: get a unique number based on url?
-
-        return 1;
-    }
-
     function isValidUrl(url){
         //TODO: validate URL
 
@@ -54,7 +50,7 @@ var track = (function(){
         init: function(name, url) {
             this.name = name;
             this.url = url;
-            this._id = getID(this.url);
+            this._id = previousID++;
 
             return this;
         },
