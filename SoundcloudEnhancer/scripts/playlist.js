@@ -3,9 +3,10 @@ var playlist = (function(){
     var previousID = 1;
 
     var playlistObject = {
-        init: function(name, genres, tracks) {
+        init: function(name, imageUrl, genres, tracks) {
             this._id = previousID++;
             this.name = name;
+            this.image = imageUrl;
             this.genres = genres;
             this.tracksList = tracks;
 
@@ -21,6 +22,14 @@ var playlist = (function(){
             validator.validateName(value, 'Playlist name');
 
             this._name = value;
+        },
+        get image(){
+            return this._image;
+        },
+        set image(value){
+            validator.validateUrl(value, 'Image URL');
+
+            this._image = value;
         },
         get genres(){
             return this._genres;
