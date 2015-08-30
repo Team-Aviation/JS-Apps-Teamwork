@@ -40,7 +40,7 @@ var playlistsSet = (function(){
 
             return this;
         },
-        deletePlaylist: function(playlist){
+        removePlaylist: function(playlist){
             var playlistExists = this.playlists.some(function(pl){
                 return pl.id === playlist.id;
             });
