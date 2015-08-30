@@ -28,3 +28,10 @@ var user = (function(){
 
     return userObject;
 }());
+
+/*TODO: Unit Tests
+- user is object
+- user.init is function
+- username not string exception
+-
+* */
