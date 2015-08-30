@@ -78,7 +78,7 @@ var playlist = (function(){
         }
     };
 
-    var playlistResult = {
+    var playlistObject = {
         init: function(name, genres, tracks) {
             this._id = previousID++;
             this.name = name;
@@ -146,5 +146,5 @@ var playlist = (function(){
         }
     };
 
-    return playlistResult;
+    return playlistObject;
 }());

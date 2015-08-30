@@ -46,7 +46,7 @@ var track = (function(){
         return true;
     }
 
-    var trackResult = {
+    var trackObject = {
         init: function(name, url) {
             this._id = previousID++;
             this.name = name;
@@ -76,5 +76,5 @@ var track = (function(){
         }
     };
 
-    return trackResult;
+    return trackObject;
 }());
