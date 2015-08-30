@@ -76,10 +76,10 @@
             if (!(playlistSet.hasOwnProperty('_playlists') ||
                 playlistSet.hasOwnProperty('searchPlaylists') ||
                 playlistSet.hasOwnProperty('addNewPlaylist') ||
-                playlistSet.hasOwnProperty('deletePlaylist') ||
+                playlistSet.hasOwnProperty('removePlaylist') ||
                 typeof playlistSet.searchPlaylists === 'function' ||
                 typeof playlistSet.addNewPlaylist === 'function' ||
-                typeof playlistSet.deletePlaylist === 'function')
+                typeof playlistSet.removePlaylist === 'function')
             ) {
                 throw new Error(playlistSetName + ' is not a valid playlists set object');
             }
