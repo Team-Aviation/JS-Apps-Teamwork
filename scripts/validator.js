@@ -69,19 +69,17 @@
                 throw new Error(playlistName + ' is not a valid playlist object');
             }
         },
-        validateIfPlaylistSet: function(playlistSet, playlistSetName){
+        validateIfPlaylistsSet: function(playlistSet, playlistSetName){
             playlistSetName = playlistSetName || 'Value';
 
             this.validateIfObject(playlistSet, playlistSetName);
-            if (!(playlistSet.hasOwnProperty('_id') ||
-                playlistSet.hasOwnProperty('_name') ||
-                playlistSet.hasOwnProperty('_genres') ||
-                playlistSet.hasOwnProperty('_tracksList') ||
-                playlistSet.hasOwnProperty('_trackRequests') ||
-                playlistSet.hasOwnProperty('addNewTrack') ||
-                playlistSet.hasOwnProperty('removeTrack') ||
-                typeof playlistSet.addNewTrack === 'function' ||
-                typeof playlistSet.removeTrack === 'function')
+            if (!(playlistSet.hasOwnProperty('_playlists') ||
+                playlistSet.hasOwnProperty('searchPlaylists') ||
+                playlistSet.hasOwnProperty('addNewPlaylist') ||
+                playlistSet.hasOwnProperty('deletePlaylist') ||
+                typeof playlistSet.searchPlaylists === 'function' ||
+                typeof playlistSet.addNewPlaylist === 'function' ||
+                typeof playlistSet.deletePlaylist === 'function')
             ) {
                 throw new Error(playlistSetName + ' is not a valid playlists set object');
             }
@@ -146,7 +144,7 @@
             this.validateIfUndefined(playlists, playlistsName);
             this.validateIfArray(playlists, playlistsName);
             for (var index in playlists) {
-                if (!this.validateIfTrack(playlists[index])) {
+                if (!this.validateIfPlaylistsSet(playlists[index])) {
                     throw new Error(playlistsName + ' contains a non-playlist element at index ' + index);
                 }
             }
