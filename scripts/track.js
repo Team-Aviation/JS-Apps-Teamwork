@@ -54,7 +54,6 @@ var track = (function(){
 
             return this;
         },
-
         get id(){
             return this._id;
         },
