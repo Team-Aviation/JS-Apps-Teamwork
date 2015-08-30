@@ -48,11 +48,15 @@ var track = (function(){
 
     var trackResult = {
         init: function(name, url) {
+            this._id = previousID++;
             this.name = name;
             this.url = url;
-            this._id = previousID++;
 
             return this;
+        },
+
+        get id(){
+            return this._id;
         },
         get name(){
             return this._name;
@@ -69,9 +73,6 @@ var track = (function(){
             validator.validateUrl(value, 'Track URL');
 
             this._url = value;
-        },
-        get id(){
-            return this._id;
         }
     };
 
