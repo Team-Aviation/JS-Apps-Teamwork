@@ -149,14 +149,14 @@
                 }
             }
         },
-        validatePatterns: function(patterns, pattenrsName){
-            pattenrsName = pattenrsName || 'Value';
+        validatePatterns: function(patterns, patternsName){
+            patternsName = patternsName || 'Value';
 
-            this.validateIfUndefined(patterns, pattenrsName);
-            this.validateIfArray(patterns, pattenrsName);
+            this.validateIfUndefined(patterns, patternsName);
+            this.validateIfArray(patterns, patternsName);
             for (var index in patterns) {
                 if (!this.validateIfString(patterns[index])) {
-                    throw new Error(pattenrsName + ' contains a non-string element at index ' + index);
+                    throw new Error(patternsName + ' contains a non-string element at index ' + index);
                 }
             }
         }
