@@ -27,34 +27,28 @@
                     ]
                 },
                 map: {
-                    // Load (map) the path to babel and jquery
+                    // Load (map) the path to babel, jquery and bootstrap.js
                     'babel': 'node_modules/babel/node_modules/babel-core/browser.js',
                     'jquery': 'node_modules/jquery/dist/jquery.js',
                     'bootstrapjs': 'node_modules/bootstrap/dist/js/bootstrap.min.js'
                 }
             });
-            System.import('scripts/app.js');
-                // .then(function(app) {
-                //     //app.appInitialize();
-                // });
-                // We should insert callback with .then to initialize the app  
+            System.import('scripts/app.js'); 
         </script>
-        <!-- CSS file, currently empty -->
-        <link rel="stylesheet" type="text/css" href="./css/customStyles.css">
     </head>
     <body>
         <div class="site-wrapper">
-        <div class="row" id="backgroundContainer">
-            <script id="backgroundImageTemplate" type='text/x-handlebars-template'>   
-                {{#urls}}
-                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                        <img src={{this}} class="img-responsive">
-                    </div>
-                {{/urls}}
-            </script>            
+        <div class="row" id="backgroundContainer">          
         </div>
         <div class="site-wrapper-inner">
             <div class="cover-container">
+                <div id="innerContent" class="cover">
+                    <h1 class="cover-heading">Search for your favorite playlist now!</h1>
+                    <form class="searchSubmitForm">
+                        <input type="text" id="playlystSearcher" placeholder="Search">
+                        <div id="searchPlaylistBtn" class="btn btn-lg btn-default">Search</div>
+                    </form>
+                </div>
                 <div class="masthead clearfix">
                     <div class="inner">
                         <h3 class="masthead-brand">
@@ -71,14 +65,6 @@
                         </nav>
                     </div>
                 </div>
-                <div class="inner cover">
-                    <h1 class="cover-heading">Search your favorite playlist now!</h1>
-                    <form class="searchSubmitForm">
-                        <input type="text" id="playlystSearcher" placeholder="Search">
-                        <button id="searchPlaylistBtn" class="btn btn-lg btn-default">Search</button>
-                    </form>
-                    
-                </div>
                 <div class="mastfoot">
                     <div class="inner">
                         <p>Playlist manager by <a href="https://github.com/Team-Aviation">Aviation team</a>.</p>
@@ -88,6 +74,13 @@
         </div>
     </div>
 
+    <script id="imageTemplate" type='text/x-handlebars-template'>   
+        {{#urls}}
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <img src={{this}} class="img-responsive">
+            </div>
+        {{/urls}}
+    </script>  
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
