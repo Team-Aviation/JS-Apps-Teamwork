@@ -32,6 +32,13 @@ var user = (function(){
 /*TODO: Unit Tests
 - user is object
 - user.init is function
-- username not string exception
--
+- user.username is undefined exception
+- user.username is not string exception
+- user.username is empty string exception
+- user.username is valid no exception
+- user.playlistsSet is an object
+- user.playlistsSet is undefined exception
+- user.playlistsSet is not an array exception
+- user.playlistsSet contains non-playlist exception
+- user.playlistsSet is valid no exception
 * */
