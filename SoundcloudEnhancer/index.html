@@ -14,10 +14,8 @@
     <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/indexPageCustomStyles.css" rel="stylesheet">
     
-    <!-- Load system.js -->
+    <!-- Loading system.js -->
     <script src="node_modules/systemjs/dist/system.js" type="text/javascript"></script>
-    <!-- I should think how to remove this! (Veso) -->
-    <script src="node_modules/handlebars/dist/handlebars.js" type="text/javascript"></script>
     
     <script type="text/javascript">
         System.config({
@@ -28,10 +26,11 @@
                 ]
             },
             map: {
-                // Load (map) the path to babel, jquery and bootstrap.js
+                // Load (map) the path to babel, jquery, bootstrap.js and handlebars
                 'babel': 'node_modules/babel/node_modules/babel-core/browser.js',
                 'jquery': 'node_modules/jquery/dist/jquery.js',
-                'bootstrapjs': 'node_modules/bootstrap/dist/js/bootstrap.min.js'
+                'bootstrapjs': 'node_modules/bootstrap/dist/js/bootstrap.min.js',
+                'handlebars': 'node_modules/handlebars/dist/handlebars.js'
             }
         });
         System.import('scripts/app.js');
