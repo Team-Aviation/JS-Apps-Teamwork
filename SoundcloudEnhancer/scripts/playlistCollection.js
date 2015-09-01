@@ -1,6 +1,6 @@
 var playlistCollection = (function() {
-    // Checking if the module is sucsessfully loaded
-    console.log('PlaylistCollection sucsessfully loaded!');
+    // Checking if the module is successfully loaded
+    console.log('PlaylistCollection successfully loaded!');
 
 	var PlaylistCollection = Object.create({});
 
@@ -116,7 +116,7 @@ var playlistCollection = (function() {
 			var i, len, currentPlaylist;
 
 			validateIfPlaylist(playlist);
-			
+
 			for (i = 0, len = this.setOfPlaylists.length; i < len; i += 1) {
 				currentPlaylist = this.setOfPlaylists[i];
 				if (currentPlaylist.id === playlist.id) {
@@ -162,7 +162,7 @@ var playlistCollection = (function() {
     	var i, len;
 
 		validateIfNonEmptyArray(playlists);
-    	
+
 		for (i = 0, len = playlists.length; i < len; i++) {
 			validateIfPlaylist(playlists[i]);
 		}

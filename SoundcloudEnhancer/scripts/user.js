@@ -1,6 +1,6 @@
 var user = (function(){
-    // Checking if the module is sucsessfully loaded
-    console.log('User sucsessfully loaded!');
+    // Checking if the module is successfully loaded
+    console.log('User successfully loaded!');
 
     var userObject = {
         init: function(username, playlistsSet) {

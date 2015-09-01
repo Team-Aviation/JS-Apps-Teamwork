@@ -1,8 +1,8 @@
 import {constants} from 'scripts/constants.js';
 
 var validator = (function () {
-    // Checking if the module is sucsessfully loaded
-    console.log('Validator sucsessfully loaded!');
+    // Checking if the module is successfully loaded
+    console.log('Validator successfully loaded!');
 
     function isValidUrl(url) {
         //TODO: validate URL

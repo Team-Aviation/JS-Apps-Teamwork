@@ -20,10 +20,10 @@ var appInitialize = (function() {
 	var backgroundImageContainer = $('#backgroundContainer');
     var imageTemplate = Handlebars.compile(($('#imageTemplate')).html());
     backgroundImageContainer.html(imageTemplate(imageUrlContainerObject));
-	
+
 	var searchForPlaylists = function() {
 		// This searches the playlist for result according to the words in the input field
-		// 
+		//
 		// var allPlaylists = .... load all playlist from db;
 		// var searchedPatternsString = $('#playlystSearcher').val();
 		// var searchedPatternsArra = searchedPatternsString.trim().split(" ");

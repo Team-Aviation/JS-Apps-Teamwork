@@ -1,6 +1,6 @@
 var track = (function(){
-    // Checking if the module is sucsessfully loaded
-    console.log('Track sucsessfully loaded!');
+    // Checking if the module is successfully loaded
+    console.log('Track successfully loaded!');
 
     var previousID = 1;
 
