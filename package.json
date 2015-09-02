@@ -1,0 +1,25 @@
+{
+  "name": "tests_package",
+  "version": "1.0.0",
+  "description": "Tests for JS-Apps-Teamwork_Aviation",
+  "scripts": {
+    "test": "mocha -R spec tests --compilers js:babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Team-Aviation/JS-Apps-Teamwork.git"
+  },
+  "keywords": [
+    "SoundCloud",
+    "extension"
+  ],
+  "author": "Team_Aviation",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Team-Aviation/JS-Apps-Teamwork/issues"
+  },
+  "homepage": "https://github.com/Team-Aviation/JS-Apps-Teamwork",
+  "dependencies": {
+    "chai": "^3.2.0"
+  }
+}
