@@ -1,11 +1,11 @@
  import 'jquery';
  import 'bootstrapjs';
  import Handlebars from 'handlebars';
- import { validator } from 'scripts/validator.js';
- import { track } from 'scripts/track.js';
- import { playlist } from 'scripts/playlist.js';
- import { playlistCollection } from 'scripts/playlistCollection.js';
- import { user } from 'scripts/user.js';
+ import { validator } from './validator.js';
+ import { track } from './track.js';
+ import { playlist } from './playlist.js';
+ import { playlistCollection } from './playlistCollection.js';
+ import { user } from './user.js';
 
 var appInitialize = (function() {
 	// Checking if the module is sucsessfully loaded
