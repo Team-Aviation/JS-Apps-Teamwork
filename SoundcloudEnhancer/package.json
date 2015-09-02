@@ -4,7 +4,7 @@
   "description": "JS-Apps-Teamwork_Aviation",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -R spec tests --compilers js:babel/register"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "bootstrap": "^3.3.5",
     "handlebars": "^3.0.3",
     "jquery": "^2.1.4",
-    "systemjs": "^0.18.17"
+    "systemjs": "^0.18.17",
+    "chai": "^3.0.0"
   }
 }
