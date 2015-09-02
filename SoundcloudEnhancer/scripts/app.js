@@ -8,8 +8,8 @@
  import { user } from './user.js';
 
 var appInitialize = (function() {
-	// Checking if the module is sucsessfully loaded
-	console.log('App loaded sucsessfully!');
+	// Checking if the module is successfully loaded
+	console.log('App loaded successfully!');
 
 	// The below should be replaced by loading an array of the image urls of the last 30 playlists added to the system.
 	var imageUrlArray = Array.apply(null, Array(30))
