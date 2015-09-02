@@ -10,8 +10,8 @@ var templates = (function() {
             var url = 'templates/' + name + '.html';
             console.log(url);
             $.get(url, function(templateHtml) {
-                // var template = handlebars.compile(templateHtml);
-                resolve(templateHtml);
+                var template = handlebars.compile(templateHtml);
+                resolve(template);
             });
         });
         return promise;
