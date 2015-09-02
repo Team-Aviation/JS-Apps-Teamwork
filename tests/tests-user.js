@@ -1,4 +1,4 @@
-import {user} from '../scripts/user.js';
+import {user} from '../SoundcloudEnhancer/scripts/user.js';
 var expect = require('chai').expect;
 
 describe('Test for user object', function () {
