@@ -8,10 +8,11 @@ window.onload = function () {
     });
 
 };
+
 function playGenre(genre) {
     SC.get('/tracks', {genres: genre}, function (tracks) {
 
-        var random =Math.floor(Math.random()*(9-0+1)+0);
+        var random = Math.floor(Math.random() * (9 - 0 + 1) + 0);
 
         SC.oEmbed(tracks[random].uri, {auto_play: true}, document.getElementById('player'));
     })
