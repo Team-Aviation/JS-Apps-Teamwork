@@ -1,3 +1,5 @@
+import {validator} from './validator.js';
+
 var playlist = (function(){
     // Checking if the module is sucsessfully loaded
     console.log('Playlist sucsessfully loaded!');
