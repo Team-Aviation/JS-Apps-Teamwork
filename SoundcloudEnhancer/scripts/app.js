@@ -14,15 +14,19 @@ var appInitialize = (function() {
 	// Checking if the module is successfully loaded
 	console.log('App loaded successfully!');
 
-	// The below should be replaced by loading an array of the image urls of the last 30 playlists added to the system.
-	var imageUrlArray = Array.apply(null, Array(30))
-		.map(function(){
-			return './img/pic385x385.png';
-		});
-	var imageUrlContainerObject = {urls: imageUrlArray};
-	var backgroundImageContainer = $('#backgroundContainer');
-    var imageTemplate = Handlebars.compile(($('#imageTemplate')).html());
-    backgroundImageContainer.html(imageTemplate(imageUrlContainerObject));
+	templates.get('BackgrounGridTemplate')
+        .then(function (template) {
+		// The below should be replaced by loading an array of the image urls of the last 30 playlists added to the system.
+        	var imageUrlArray = Array.apply(null, Array(30))
+				.map(function(){
+					return './img/pic385x385.png';
+				});
+			var imageUrlContainerObject = {urls: imageUrlArray};
+			var backgroundImageContainer = $('#backgroundContainer');
+		    var imageTemplate = Handlebars.compile(template);
+		    backgroundImageContainer.html(imageTemplate(imageUrlContainerObject));
+        });
+	
 
 	// Introduce Sammy:
 	var sammyApp = Sammy('#container', function () {
@@ -59,6 +63,21 @@ var appInitialize = (function() {
 					$container.addClass('searchResultsContainer');
 
 					var searchResultsTemplate = Handlebars.compile(template);
+
+					$container.html(searchResultsTemplate(resultImageUrlContainerObject));
+        		});
+        });
+
+        this.get('#/profile:username', function () {
+        	var $container = $('#container');
+        	$('#backgroundContainer').css('display', 'none');
+
+        	templates.get('ProfilePage')
+        		.then(function (template) {
+        			
+
+
+					var profileTemplate = Handlebars.compile(template);
 
 					$container.html(searchResultsTemplate(resultImageUrlContainerObject));
         		});
