@@ -49,50 +49,11 @@
         </div>
         <div class="site-wrapper-inner">
             <div class="cover-container">
-
-
-
-
-                <div id="innerContent" class="cover">
-                    <ul >
-                        <li><a href="#" class="genre">Dubstep</a></li>
-                        <li><a href="#" class="genre">Deep house</a></li>
-                        <li><a href="#" class="genre">Rock</a></li>
-
-                    </ul>
-                    <div id="player">
-                    </div>
-                    <div id="container">
+                <div id="container" class="cover">
                         <!--insert pages here-->
-
-                    </div>
                 </div>
 
                 <script src="templates/templates.js"></script>
-                <script>
-                    var sammyApp = Sammy('#container', function () {
-
-                        this.get('#/', function () {
-                            var $container = $('#container');
-                            
-                            templates.get('home')
-                            .then(function (template) {
-                                //template -> handelbars.compile(templateString);
-                                $container.html(template())
-                            })
-                        });
-
-                        this.get('#/searchresult', function () {
-
-                        });
-                    });
-
-                    $(function () {
-                        sammyApp.run('#/');
-                    })
-                </script>
-
-
 
                 <div class="masthead clearfix">
                     <div class="inner">
@@ -102,7 +63,7 @@
                         </h3>
                         <nav>
                             <ul class="nav masthead-nav">
-                                <li class="active"><a href="#">Home</a></li>
+                                <li class="active"><a href="#/">Home</a></li>
                                 <li><a href="#">Profile</a></li>
                                 <li><a href="#">Player</a></li>
                                 <li><a href="#">Log in</a></li>
