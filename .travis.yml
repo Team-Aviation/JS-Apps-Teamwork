@@ -9,6 +9,3 @@ before_script:
   - npm install chai
   - npm install babel
   - npm install systemjs
-  - bower install
-  - gulp build
-  - gulp style
