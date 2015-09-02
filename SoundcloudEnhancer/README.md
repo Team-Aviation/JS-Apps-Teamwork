@@ -2,7 +2,8 @@
 
 *****************************************
 
-# Soundcloud Enhancer
+# Soundcloud Enhancer 
+[![Build Status](https://travis-ci.org/Team-Aviation/JS-Apps-Teamwork.svg?branch=master)](https://travis-ci.org/Team-Aviation/JS-Apps-Teamwork)
 
 *****************************************
 
