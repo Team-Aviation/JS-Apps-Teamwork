@@ -1,4 +1,4 @@
-import {constants} from './constants.js';
+import {constants} from 'scripts/constants.js';
 
 var validator = (function () {
     // Checking if the module is successfully loaded

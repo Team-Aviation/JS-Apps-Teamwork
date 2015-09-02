@@ -1,8 +1,6 @@
-import {validator} from './validator.js';
-
 var playlist = (function(){
-    // Checking if the module is successfully loaded
-    console.log('Playlist successfully loaded!');
+    // Checking if the module is sucsessfully loaded
+    console.log('Playlist sucsessfully loaded!');
 
     var previousID = 1;
 

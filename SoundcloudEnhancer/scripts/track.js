@@ -1,5 +1,3 @@
-import {validator} from './validator.js';
-
 var track = (function(){
     // Checking if the module is successfully loaded
     console.log('Track successfully loaded!');

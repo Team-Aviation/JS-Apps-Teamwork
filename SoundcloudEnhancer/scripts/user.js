@@ -1,5 +1,3 @@
-import {validator} from './validator.js';
-
 var user = (function(){
     // Checking if the module is successfully loaded
     console.log('User successfully loaded!');

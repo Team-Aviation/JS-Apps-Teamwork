@@ -1,5 +1,3 @@
-import {validator} from './validator.js';
-
 var playlistCollection = (function() {
     // Checking if the module is successfully loaded
     console.log('PlaylistCollection successfully loaded!');
