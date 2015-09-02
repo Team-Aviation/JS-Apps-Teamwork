@@ -1,3 +1,11 @@
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: inline;
+}
+
 .row div, #container>div {
     padding: 1px;
 }

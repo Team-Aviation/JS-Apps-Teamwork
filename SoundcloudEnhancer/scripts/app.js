@@ -74,14 +74,52 @@ var appInitialize = (function() {
 
         	templates.get('ProfilePage')
         		.then(function (template) {
-        			
-
-
-					var profileTemplate = Handlebars.compile(template);
-
-					$container.html(searchResultsTemplate(resultImageUrlContainerObject));
+        			// Get user details saved locally
+      //   			soundCloud.getUser(username, function(user) {
+      //   				var profileTemplate = Handlebars.compile(template);
+						// $container.html(profileTemplate(user));
+      //   			});
         		});
         });
+       	
+       	this.get('#/login', function () {
+        	var $container = $('#container');
+        	$('#backgroundContainer').css('display', 'none');
+
+        	// Displlay login page
+        	templates.get('LoginPage')
+        		.then(function (template) {
+        			$container.html(template);
+        		});
+
+        	// After successfully logged:
+        	
+        	// Save user details and locally and get access key!
+
+        	$('#log').attr('href', '#/logout');
+        	$('#log').html('Logout');
+        });
+
+        this.get('#/logout', function (context) {
+        	var $container = $('#container');
+
+        	// Delete user unfo saved in the local storage
+
+        	$('#log').attr('href', '#/login');
+        	$('#log').html('Login');
+        	context.redirect('#/');
+        });
+
+
+      //   $('#btn-logout').on('click', function() {
+      //   data.users.logout()
+      //     .then(function() {
+      //       location = '#/';
+      //       document.location.reload(true);
+      //     });
+      // });
+
+
    	});
 
     $(function () {
