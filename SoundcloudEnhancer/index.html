@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 <head>
@@ -16,7 +16,7 @@
     
     <!-- Loading system.js -->
     <script src="node_modules/systemjs/dist/system.js" type="text/javascript"></script>
-    
+    <script src="node_modules/sammy/lib/sammy.js"></script>
     <script type="text/javascript">
         System.config({
             transpiler: 'babel',
@@ -30,7 +30,8 @@
                 'babel': 'node_modules/babel/node_modules/babel-core/browser.js',
                 'jquery': 'node_modules/jquery/dist/jquery.js',
                 'bootstrapjs': 'node_modules/bootstrap/dist/js/bootstrap.min.js',
-                'handlebars': 'node_modules/handlebars/dist/handlebars.js'
+                'handlebars': 'node_modules/handlebars/dist/handlebars.js',
+                'sammy': 'node_modules/sammy/lib/sammy.js'
             }
         });
         System.import('scripts/app.js');
@@ -55,7 +56,9 @@
                     </form>
                 </div>
 
+                <script>
 
+                </script>
 
 
 
