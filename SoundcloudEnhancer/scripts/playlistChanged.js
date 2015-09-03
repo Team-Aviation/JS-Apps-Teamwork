@@ -31,7 +31,7 @@ var playlist = (function(){
             return this._image;
         },
         set image(value){
-            validator.validateUrl(value, 'Image URL');
+            // validator.validateUrl(value, 'Image URL');
 
             this._image = value;
         },

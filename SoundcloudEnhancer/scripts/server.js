@@ -2,6 +2,8 @@ var express = require('express');
 var http = require('http');
 var fs = require('fs');
 var path = require('path');
+var bodyParser = require('body-parser');
+
 var appServer = express();
 
 //Defines a port we want to listen to
@@ -11,6 +13,7 @@ appServer.set('port', process.env.PORT || 3000);
 appServer.set('views', __dirname + '/views');
 appServer.set('view engine', 'jade');
 
+appServer.use(bodyParser.json());
 
 appServer.all('*', function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -18,13 +21,15 @@ appServer.all('*', function(req, res, next) {
     next();
 });
 
-appServer.post('http://localhost:3000/users', function(req, res) {
+appServer.post('/users', function (req, res) {
     // Save to database
     var filename = 'usersDB.json';
-    fs.readFile(filename, 'utf8', function(err, data) {
+
+    fs.readFile(filename, 'utf8', function (err, data) {
         if (err) {
             return console.log(err);
-        }
+        }   
+
         var oldObject = JSON.parse(data) || '';
         var oldUsersArray = oldObject.users || [];
         var newEntries = req.body || [];
@@ -39,8 +44,8 @@ appServer.post('http://localhost:3000/users', function(req, res) {
 //Create a server
 var server = http.createServer(appServer);
 
-//Lets start our server
+// starts server
 server.listen(PORT, function() {
-    //Callback triggered when server is successfully listening. Hurray!
+    //Callback triggered when server is successfully listening.
     console.log("Server listening on: http://localhost:%s", PORT);
 });

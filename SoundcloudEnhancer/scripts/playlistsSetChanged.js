@@ -1,4 +1,4 @@
-import {validator} from 'validator.js';
+import {validator} from './validator.js';
 
 var playlistsSet = (function(){
 
@@ -12,7 +12,7 @@ var playlistsSet = (function(){
             return this._playlists;
         },
         set playlists(value){
-            validator.validatePlaylists(value, 'Playlists array');
+            // validator.validatePlaylists(value, 'Playlists array');
 
             this._playlists = value;
         },

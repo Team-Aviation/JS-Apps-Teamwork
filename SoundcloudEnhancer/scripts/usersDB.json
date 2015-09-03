@@ -1,3 +1,1 @@
-{
-	"users": []
-}
+{"users":[{"_id":2,"_name":"Blqblq","_image":{"_playlists":[{"_id":1,"_name":"Metallica-PLS","_image":"metallicaImageURL","_genres":["rock","trash"],"_tracksList":[{"_id":1,"_name":"Metallica-Unforgiven","_url":"metallicaURL"}]}]}},{"_id":2,"_name":"Blqblq","_image":{"_playlists":[{"_id":1,"_name":"Metallica-PLS","_image":"metallicaImageURL","_genres":["rock","trash"],"_tracksList":[{"_id":1,"_name":"Metallica-Unforgiven","_url":"metallicaURL"}]}]}}]}
