@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="../constants.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../validator.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../playlist.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../track.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../user.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../playlistsSet.js" type="text/javascript" charset="utf-8"></script>
+
+
+</head>
+<body>
+<script type="text/javascript">
+	var saveToDb = function() {
+		var trackInstance = Object.create(track).init('Metallica-Unforgiven', 'metallicaURL');
+		var playlistInstance = Object.create(playlist).init('Metallica-PLS', 'metallicaImageURL', ['rock', 'trash'], [trackInstance]);
+		var playlistsSetInstance = Object.create(playlistsSet).init([playlistInstance]);
+		var userInstance = Object.create(playlist).init('Blqblq', playlistsSetInstance);
+
+		var jsonObject = JSON.stringify(userInstance);
+
+		$.ajax({
+			type: "POST",
+			url: "http://localhost:3000/users",
+			data: jsonObject,
+			contentType: 'application/json',
+		}).done(function() {
+			window.alert('Added to the DB!');
+		}).fail(function() {
+		    window.alert('Failed to save data on server!');
+		});	
+	};
+</script>
+<button id="saveBtn" onclick="saveToDb()">Save</button>
+	
+</body>
+</html>

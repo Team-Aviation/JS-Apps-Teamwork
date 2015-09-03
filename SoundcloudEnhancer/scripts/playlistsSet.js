@@ -1,5 +1,4 @@
 var playlistsSet = (function(){
-    var validator = require('./validator')();
 
     var playlistsSetObject = {
         init: function(playlists) {
@@ -60,3 +59,5 @@ var playlistsSet = (function(){
 
     return playlistsSetObject;
 }());
+
+export {playlistsSet};

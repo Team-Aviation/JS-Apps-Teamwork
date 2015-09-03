@@ -7,7 +7,7 @@ var appServer = express();
 //Defines a port we want to listen to
 var PORT = 3000;
 
-appServer.set('port', process.env.PORT || 8888);
+appServer.set('port', process.env.PORT || 3000);
 appServer.set('views', __dirname + '/views');
 appServer.set('view engine', 'jade');
 
@@ -18,19 +18,19 @@ appServer.all('*', function(req, res, next) {
     next();
 });
 
-appServer.post('/............something', function(req, res) {
-    // Save
-    var filename = 'destinationDataBase.json';
+appServer.post('http://localhost:3000/users', function(req, res) {
+    // Save to database
+    var filename = 'usersDB.json';
     fs.readFile(filename, 'utf8', function(err, data) {
         if (err) {
             return console.log(err);
         }
-        var entriesObject = JSON.parse(data) || '';
-        var oldFeaturesArray = entriesObject.features || [];
+        var oldObject = JSON.parse(data) || '';
+        var oldUsersArray = oldObject.users || [];
         var newEntries = req.body || [];
-        var updatedFeaturesArray = oldFeaturesArray.concat(newEntries);
-        entriesObject.features = updatedFeaturesArray;
-        fs.writeFile(filename, JSON.stringify(entriesObject));
+        var updatedUsersArray = oldUsersArray.concat(newEntries);
+        oldObject.users = updatedUsersArray;
+        fs.writeFile(filename, JSON.stringify(oldObject));
     });
     // 
 });

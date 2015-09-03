@@ -14,9 +14,9 @@
  }
  from './playlist.js';
  import {
-     playlistCollection
+     playlistsSet
  }
- from './playlistCollection.js';
+ from './playlistsSet.js';
  import {
      user
  }
