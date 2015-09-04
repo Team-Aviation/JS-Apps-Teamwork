@@ -101,9 +101,13 @@
 
         this.get('#/player', function() {
              var $container = $('#container');
+             $('#backgroundContainer').css('display', 'none');
              $('#backgroundContainer').css('display', 'block');
-             $('#playerContainer').removeClass('player-nav-invisible');
-             $('#playerContainer').addClass('player-nav-visible');
+
+             templates.get('PlayerPage')
+                 .then(function(template) {
+                     $container.html(template());
+                 });
          });
 
          this.get('#/profile:username', function() {
