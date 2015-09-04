@@ -32,6 +32,11 @@
      // Checking if the module is successfully loaded
      console.log('App loaded successfully!');
 
+     if (localStorage.USERNAME_STORAGE_KEY && localStorage.PASS_STORAGE_KEY) {
+        $('#log').attr('href', '#/logout');
+        $('#log').html('Logout');
+     }
+
      templates.get('BackgrounGridTemplate')
          .then(function(template) {
             var imageUrlArray = [];
