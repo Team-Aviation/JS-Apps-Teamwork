@@ -16,7 +16,7 @@
  import {
      playlistsSet
  }
- from './playlistsSet.js';
+ from './playlistsSetChanged.js';
  import {
      user
  }
@@ -34,11 +34,15 @@
 
      templates.get('BackgrounGridTemplate')
          .then(function(template) {
-             // The below should be replaced by loading an array of the image urls of the last 30 playlists added to the system.
-             var imageUrlArray = Array.apply(null, Array(30))
-                 .map(function() {
-                     return './img/pic385x385.png';
-                 });
+            var imageUrlArray = [];
+            var currentImage;
+             
+            var i;
+            for (i = 5; i< 31; i ++) {
+                currentImage = './img/PlaylistsCovers/' + i.toString() + '.jpg';
+                console.log(currentImage);
+                imageUrlArray.push(currentImage);
+            }
              var imageUrlContainerObject = {
                  urls: imageUrlArray
              };

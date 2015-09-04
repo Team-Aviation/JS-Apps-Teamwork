@@ -1,3 +1,6 @@
+#backgroundContainer {
+    opacity: 0.5;
+}
 .row div, #container>div {
     padding: 1px;
 }
@@ -58,6 +61,7 @@ html,
 body {
     height: 100%;
     background-color: #333;
+    text-shadow: 5px 2px #000;
 }
 
 body {
