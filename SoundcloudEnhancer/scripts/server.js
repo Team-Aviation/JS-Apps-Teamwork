@@ -36,6 +36,13 @@ appServer.post('/users', function (req, res) {
         var updatedUsersArray = oldUsersArray.concat(newEntries);
         oldObject.users = updatedUsersArray;
         fs.writeFile(filename, JSON.stringify(oldObject));
+        console.log('user saved!');
+        var response = {
+            status  : 200,
+            success : 'User Added Successfully'
+        };
+
+        res.end(JSON.stringify(response));
     });
     // 
 });

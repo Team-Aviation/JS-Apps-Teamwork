@@ -124,25 +124,39 @@
                  });
          });
 
-         this.get('#/login', function() {
+         this.get('#/login', function(context) {
              var $container = $('#container');
              $('#backgroundContainer').css('display', 'none');
 
              // Displlay login page
-             templates.get('LoginTemplate')
+             templates.get('LoginTemplateNew')
                  .then(function(template) {
                      $container.html(template);
-                     System.import('scripts/login.js');
-
-                     // add functionality of search
-                 });
-
-             // After successfully logged:
-
-             // Save user details and locally and get access key!
-
-             $('#log').attr('href', '#/logout');
-             $('#log').html('Logout');
+                     // System.import('scripts/login.js');
+                     $('#loginBtn').on('click', function() {
+                        var user = {
+                            username: $('#userName').val(),
+                            password: $('#userPassword').val()
+                        };
+                        $.ajax({
+                            method: 'POST',
+                            url: 'http://localhost:3000/users',
+                            data: JSON.stringify(user),
+                            contentType: 'application/json',
+                            success: function() {
+                                window.alert('Loged in!');
+                                localStorage.setItem('USERNAME_STORAGE_KEY', user.username);
+                                localStorage.setItem('PASS_STORAGE_KEY', user.password);
+                                $('#log').attr('href', '#/logout');
+                                $('#log').html('Logout');
+                                context.redirect('#/');
+                            },
+                            error: function() {
+                                window.alert('Failed to log user!');
+                            }
+                        });
+                     });
+                 });             
          });
 
          this.get('#/logout', function(context) {
