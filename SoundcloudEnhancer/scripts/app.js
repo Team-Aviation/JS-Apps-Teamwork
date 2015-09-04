@@ -160,13 +160,14 @@
          });
 
          this.get('#/logout', function(context) {
-             var $container = $('#container');
+            var $container = $('#container');
 
-             // Delete user unfo saved in the local storage
+            localStorage.removeItem('PASS_STORAGE_KEY');
+            localStorage.removeItem('USERNAME_STORAGE_KEY');
 
-             $('#log').attr('href', '#/login');
-             $('#log').html('Login');
-             context.redirect('#/');
+            $('#log').attr('href', '#/login');
+            $('#log').html('Login');
+            context.redirect('#/');
          });
      });
 
