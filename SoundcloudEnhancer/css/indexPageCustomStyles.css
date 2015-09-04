@@ -1,3 +1,21 @@
+.player-nav-visible {
+    text-align: center;
+    display: block;
+}
+
+.player-nav-invisible {
+    text-align: center;
+    display: none;
+}
+
+.player-nav-visible li {
+    display: inline-block;
+    list-style-type: none;
+    font-size: 1.8em;
+    font-weight: bold;
+    padding: 20px;
+}
+
 #backgroundContainer {
     opacity: 0.5;
 }

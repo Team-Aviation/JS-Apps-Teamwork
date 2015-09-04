@@ -41,7 +41,6 @@
             for (i = 1; i< 31; i ++) {
                 var number = Math.floor(Math.random() * (30 - 2 + 1)) + 2;
                 currentImage = './img/PlaylistsCovers/' + number.toString() + '.jpg';
-                console.log(currentImage);
                 imageUrlArray.push(currentImage);
             }
              var imageUrlContainerObject = {
@@ -98,6 +97,13 @@
                          console.log(tracks);
                      });
                  });
+         });
+
+        this.get('#/player', function() {
+             var $container = $('#container');
+             $('#backgroundContainer').css('display', 'block');
+             $('#playerContainer').removeClass('player-nav-invisible');
+             $('#playerContainer').addClass('player-nav-visible');
          });
 
          this.get('#/profile:username', function() {
