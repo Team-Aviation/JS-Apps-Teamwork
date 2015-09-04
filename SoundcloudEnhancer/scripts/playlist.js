@@ -39,7 +39,7 @@ var playlist = (function(){
             return this._genres;
         },
         set genres(value){
-            // There is a problem with this validation. It trows when not neded
+            // There is a problem with this validation. It trows when not needed
             // validator.validateGenres(value, 'Playlist genres');
 
             this._genres = value;
@@ -48,7 +48,7 @@ var playlist = (function(){
             return this._tracksList;
         },
         set tracksList(value){
-            // There is a problem with this validation. It trows when not neded
+            // There is a problem with this validation. It trows when not needed
             // validator.validateTracks(value, 'Playlist tracks');
 
             this._tracksList = value;
@@ -65,12 +65,12 @@ var playlist = (function(){
             validator.validateIfUndefined(track, 'Track to be added');
             validator.validateIfTrack(track, 'Track to be added');
 
-            this.tracks.push(track);
+            this.tracksList.push(track);
 
             return this;
         },
         removeTrack: function(track){
-            var trackExists = this.tracks.some(function(tr){
+            var trackExists = this.tracksList.some(function(tr){
                 return tr.id === track.id;
             });
 
@@ -78,7 +78,7 @@ var playlist = (function(){
             validator.validateIfTrack(track, 'Track to be removed');
 
             if (trackExists) {
-                this.tracks.splice(this.tracks.indexOf(track, 1));
+                this.tracksList.splice(this.tracksList.indexOf(track, 1));
             }
 
             return this;

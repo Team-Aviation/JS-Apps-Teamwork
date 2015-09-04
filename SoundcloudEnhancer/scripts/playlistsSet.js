@@ -1,50 +1,49 @@
-import {validator} from 'validator.js';
+import {validator} from './validator.js';
 
 var playlistsSet = (function(){
 
     var playlistsSetObject = {
         init: function(playlists) {
-            this.playlists = playlists;
+            this.playlistsList = playlists;
 
             return this;
         },
-        get playlists(){
-            return this._playlists;
+        get playlistsList(){
+            return this._playlistsList;
         },
-        set playlists(value){
+        set playlistsList(value){
             validator.validatePlaylists(value, 'Playlists array');
 
-            this._playlists = value;
+            this._playlistsList = value;
         },
         searchPlaylists: function(patterns){
             validator.validatePatterns(patterns, 'Search playlist strings');
 
             var patternsCaseInsensitive = patterns.map(function(pat){ return pat.toLowerCase();});
 
-            return this.playlists.filter(
-                function(pl){
-                    var foundPlaylist = true;
+            var result = [];
 
-                    for (var index in patternsCaseInsensitive) {
-                        if (pl.name.toLowerCase().indexOf(patternsCaseInsensitive[index]) < 0) {
-                            foundPlaylist = false;
-                        }
+            var i, j, lenI, lenJ;
+            for (i = 0, lenI = patternsCaseInsensitive.length; i < lenI; i += 1) {
+                for (j = 0, lenJ = this.playlistsList.length; j < lenI; j += 1) {
+                    if (this.playlistsList[j]["_name"].toLowerCase().indexOf(patternsCaseInsensitive[i]) >= 0) {
+                        result.push(this.playlistsList[j]);
                     }
-
-                    return foundPlaylist;
                 }
-            );
+            }
+
+            return result;
         },
         addNewPlaylist: function(playlist){
             validator.validateIfUndefined(playlist, 'Playlist to be added');
             validator.validateIfPlaylist(playlist, 'Playlist to be added');
 
-            this.playlists.push(playlist);
+            this.playlistsList.push(playlist);
 
             return this;
         },
         removePlaylist: function(playlist){
-            var playlistExists = this.playlists.some(function(pl){
+            var playlistExists = this.playlistsList.some(function(pl){
                 return pl.id === playlist.id;
             });
 
@@ -52,7 +51,7 @@ var playlistsSet = (function(){
             validator.validateIfPlaylist(playlist, 'Playlist to be removed');
 
             if (playlistExists) {
-                this.playlists.splice(this.playlists.indexOf(playlist, 1));
+                this.playlistsList.splice(this.playlistsList.indexOf(playlist, 1));
             }
 
             return this;
