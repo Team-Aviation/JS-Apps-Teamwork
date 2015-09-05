@@ -7,5 +7,5 @@
 
 *****************************************
 
-[Demo](https://cdn.rawgit.com/Team-Aviation/JS-Apps-Teamwork/master/SoundcloudEnhancer/index.html)
+[Demo](https://rawgit.com/Team-Aviation/JS-Apps-Teamwork/master/SoundcloudEnhancer/index.html)
 
