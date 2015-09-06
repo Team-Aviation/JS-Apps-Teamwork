@@ -1,3 +1,4 @@
+/// <reference path="../node_modules/jquery/dist/jquery.js" />
  // import 'jquery';
  // import 'bootstrapjs';
  // import Handlebars from 'handlebars';
@@ -105,6 +106,20 @@
                                      '</td><td>' + resultTraks[i].title + 
                                      '</td><td>' + resultTraks[i].genre + '</td></tr>');
                          }
+                         var resultTraks = tracks;
+                         
+                         for (var i = 0; i < resultTraks.length; i++) {
+                             var image = resultTraks[i].artwork_url;
+                             if (!image) {
+                                 image = './img/no_image.jpg';
+                             }
+
+                             $('#listTraks').append('<tr><td><img src="' + image + '"/>' +
+                                     '</td><td>' + resultTraks[i].title + 
+                                     '</td><td>' + resultTraks[i].genre + '</td></tr>');
+
+                         }
+                      
                      });
                  });
          });
