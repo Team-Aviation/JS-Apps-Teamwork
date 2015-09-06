@@ -5,9 +5,14 @@ var validator = (function () {
     console.log('Validator successfully loaded!');
 
     function isValidUrl(url) {
-        //TODO: validate URL
+        var validPattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
 
-        return true;
+        return validPattern.test(url);
     }
 
     return {
@@ -50,8 +55,8 @@ var validator = (function () {
             trackName = trackName || 'Value';
 
             this.validateIfObject(track, trackName);
-            if (!(track.hasOwnProperty('_id') ||
-                track.hasOwnProperty('_name') ||
+            if (!(track.hasOwnProperty('_id') &&
+                track.hasOwnProperty('_name') &&
                 track.hasOwnProperty('_url'))
             ) {
                 throw new Error(trackName + ' is not a valid track object');
@@ -61,14 +66,14 @@ var validator = (function () {
             playlistName = playlistName || 'Value';
 
             this.validateIfObject(playlist, playlistName);
-            if (!(playlist.hasOwnProperty('_id') ||
-                playlist.hasOwnProperty('_name') ||
-                playlist.hasOwnProperty('_genres') ||
-                playlist.hasOwnProperty('_tracksList') ||
-                playlist.hasOwnProperty('_trackRequests') ||
-                playlist.hasOwnProperty('addNewTrack') ||
-                playlist.hasOwnProperty('removeTrack') ||
-                typeof playlist.addNewTrack === 'function' ||
+            if (!(playlist.hasOwnProperty('_id') &&
+                playlist.hasOwnProperty('_name') &&
+                playlist.hasOwnProperty('_genres') &&
+                playlist.hasOwnProperty('_tracksList') &&
+                playlist.hasOwnProperty('_trackRequests') &&
+                playlist.hasOwnProperty('addNewTrack') &&
+                playlist.hasOwnProperty('removeTrack') &&
+                typeof playlist.addNewTrack === 'function' &&
                 typeof playlist.removeTrack === 'function')
             ) {
                 throw new Error(playlistName + ' is not a valid playlist object');
@@ -78,12 +83,12 @@ var validator = (function () {
             playlistSetName = playlistSetName || 'Value';
 
             this.validateIfObject(playlistSet, playlistSetName);
-            if (!(playlistSet.hasOwnProperty('_playlists') ||
-                playlistSet.hasOwnProperty('searchPlaylists') ||
-                playlistSet.hasOwnProperty('addNewPlaylist') ||
-                playlistSet.hasOwnProperty('removePlaylist') ||
-                typeof playlistSet.searchPlaylists === 'function' ||
-                typeof playlistSet.addNewPlaylist === 'function' ||
+            if (!(playlistSet.hasOwnProperty('_playlists') &&
+                playlistSet.hasOwnProperty('searchPlaylists') &&
+                playlistSet.hasOwnProperty('addNewPlaylist') &&
+                playlistSet.hasOwnProperty('removePlaylist') &&
+                typeof playlistSet.searchPlaylists === 'function' &&
+                typeof playlistSet.addNewPlaylist === 'function' &&
                 typeof playlistSet.removePlaylist === 'function')
             ) {
                 throw new Error(playlistSetName + ' is not a valid playlists set object');
@@ -109,9 +114,7 @@ var validator = (function () {
             this.validateIfUndefined(genres, genresName);
             this.validateIfArray(genres, genresName);
             for (var index in genres) {
-                if (!this.validateIfString(genres[index])) {
-                    throw new Error(genresName + ' contains a non-string element at index ' + index);
-                }
+                this.validateIfString(genres[index], genresName + ' at index ' + index);
             }
         },
         validateTracks: function (tracks, tracksName) {
@@ -120,9 +123,7 @@ var validator = (function () {
             this.validateIfUndefined(tracks, tracksName);
             this.validateIfArray(tracks, tracksName);
             for (var index in tracks) {
-                if (!this.validateIfTrack(tracks[index])) {
-                    throw new Error(tracksName + ' contains a non-track element at index ' + index);
-                }
+                this.validateIfTrack(tracks[index], tracksName + ' at index ' + index);
             }
         },
         validatePlaylists: function (playlists, playlistsName) {
@@ -131,25 +132,23 @@ var validator = (function () {
             this.validateIfUndefined(playlists, playlistsName);
             this.validateIfArray(playlists, playlistsName);
             for (var index in playlists) {
-                if (!this.validateIfPlaylist(playlists[index])) {
-                    throw new Error(playlistsName + ' contains a non-playlist element at index ' + index);
-                }
+                this.validateIfPlaylist(playlists[index], playlistsName + ' at index ' + index);
             }
         },
         validateUsername: function (username, usernameName) {
             usernameName = usernameName || 'Value';
 
             this.validateStringNotEmpty(username, usernameName);
+            if (username.length < constants.MIN_USERNAME_LENGTH || constants.MAX_USERNAME_LENGTH < username.length) {
+                throw new Error(usernameName + ' must be between ' + constants.MIN_USERNAME_LENGTH + ' and ' + constants.MAX_USERNAME_LENGTH);
+            }
         },
-        validatePlaylistsSet: function (playlists, playlistsName) {
-            playlistsName = playlistsName || 'Value';
+        validatePlaylistsSet: function (playlistsSet, playlistsSetName) {
+            playlistsSetName = playlistsSetName || 'Value';
 
-            this.validateIfUndefined(playlists, playlistsName);
-            this.validateIfArray(playlists, playlistsName);
-            for (var index in playlists) {
-                if (!this.validateIfPlaylistsSet(playlists[index])) {
-                    throw new Error(playlistsName + ' contains a non-playlist element at index ' + index);
-                }
+            this.validateIfUndefined(playlistsSet, playlistsSetName);
+            for (var index in playlistsSet.playlists) {
+                this.validateIfPlaylist(playlistsSet[index], playlistsSetName + ' at index ' + index);
             }
         },
         validatePatterns: function (patterns, patternsName) {
@@ -158,9 +157,7 @@ var validator = (function () {
             this.validateIfUndefined(patterns, patternsName);
             this.validateIfArray(patterns, patternsName);
             for (var index in patterns) {
-                if (!this.validateIfString(patterns[index])) {
-                    throw new Error(patternsName + ' contains a non-string element at index ' + index);
-                }
+                this.validateIfString(patterns[index], patternsName + ' at index ' + index);
             }
         },
         validateStringNotEmpty: function (string, stringName) {

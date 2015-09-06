@@ -3,8 +3,8 @@ var constants = (function() {
     console.log('Constants successfully loaded!');
 
     return {
-        MIN_NAME_LENGTH: 2,
-        MAX_NAME_LENGTH: 40
+        MIN_USERNAME_LENGTH: 2,
+        MAX_USERNAME_LENGTH: 9
     };
 }());
 

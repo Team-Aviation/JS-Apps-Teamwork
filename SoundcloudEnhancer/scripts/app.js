@@ -78,35 +78,39 @@
          this.get('#/searchresult', function() {
              var $container = $('#container');
              $('#backgroundContainer').css('display', 'none');
+            var $searchstring = $('#playlistSearcher').val();
+            // console.log($searchstring);
 
              templates.get('SearchResultsTemplate')
                  .then(function(template) {
-
-                     // The old style:
-                     // var resultImageUrlArray = Array.apply(null, Array(30))
-                     //     .map(function() {
-                     //         return './img/redPic350x350.png';
-                     //     });
-                     // var resultImageUrlContainerObject = {
-                     //     urls: resultImageUrlArray
-                     // };
-                     // $container.removeClass('cover');
-                     // $container.addClass('searchResultsContainer');
-                     // $container.html(template(resultImageUrlContainerObject));
-
+                     $container.removeClass('cover');
+                     $container.addClass('searchResultsContainer');
                      $container.html(template());
 
                      SC.get('/tracks', {
-                         q: 'metal'
+                         q: $searchstring
                      }, function(tracks) {
-                         console.log(tracks);
+
+                         var resultTraks = tracks;
+                        
+                        for (var i = 0; i < resultTraks.length; i++) {
+
+                            var image = resultTraks[i].artwork_url;
+                            // console.log(resultTraks[i]);
+                            if (!image) {
+                                 image = './img/no_image.jpg';
+                             }
+
+                             $('#listTraks').append('<tr><td><img src="' + image + '"/>' +
+                                     '</td><td>' + resultTraks[i].title + 
+                                     '</td><td>' + resultTraks[i].genre + '</td></tr>');
+                         }
                      });
                  });
          });
 
         this.get('#/player', function() {
              var $container = $('#container');
-             $('#backgroundContainer').css('display', 'none');
              $('#backgroundContainer').css('display', 'block');
 
              templates.get('PlayerPage')
@@ -131,7 +135,7 @@
 
          this.get('#/login', function(context) {
              var $container = $('#container');
-             $('#backgroundContainer').css('display', 'none');
+             // $('#backgroundContainer').css('display', 'none');
 
              // Displlay login page
              templates.get('LoginTemplateNew')
